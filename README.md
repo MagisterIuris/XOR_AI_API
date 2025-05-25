@@ -1,65 +1,50 @@
-# XOR FastAPI API
+# 🔌 XOR FastAPI API
 
-Une API REST construite avec FastAPI pour prédire le résultat de l'opération logique XOR (exclusive OR) à l'aide d'un réseau de neurones simple entraîné avec PyTorch.
-
----
-
-## Fonctionnalités
-
-- Modèle PyTorch entraîné sur les 4 cas du XOR
-- Prédiction via une API `/predict`
-- Dockerisé pour être lancé partout facilement
-- Retour JSON propre : entrée, probabilité (raw_output), classe prédite
+A simple REST API built with **FastAPI** to predict the result of the logical XOR operation using a neural network model trained with **PyTorch**.
 
 ---
 
-## Structure du projet
+## 🚀 Features
 
-xor-fastapi-api/
-├── model.py              → Architecture du modèle
-├── train.py              → Entraînement du modèle
-├── main.py               → API FastAPI
-├── test.py               → Script de test local
-├── saved_model/
-│   └── xor_model.pth     → Modèle sauvegardé
-├── requirements.txt
-├── Dockerfile
-└── README.md
+- 🧠 PyTorch model trained on the 4 basic XOR cases
+- 🔁 Prediction via a `/predict` POST endpoint
+- 🐳 Fully dockerized for easy deployment
+- 📊 Clean JSON response: input, raw_output (probability), final class
 
 ---
 
-## Entraîner le modèle (optionnel)
+## ⚙️ Train the model (optional)
 
-Commande à exécuter :
+Run the training script:
 
     python train.py
 
-Cela entraîne le modèle XOR et sauvegarde le fichier xor_model.pth dans saved_model/.
+This will train the XOR neural network and save the weights to `saved_model/xor_model.pth`.
 
 ---
 
-## Lancer l’API localement (sans Docker)
+## 🚀 Run the API locally (without Docker)
 
-1. Installer les dépendances :
+1. Install dependencies:
 
     pip install -r requirements.txt
 
-2. Lancer le serveur FastAPI :
+2. Start the FastAPI server:
 
     uvicorn main:app --reload
 
-Accès à la documentation interactive :  
+API documentation available at:  
 http://localhost:8000/docs
 
 ---
 
-## Tester l’API avec curl
+## 📬 Test the API with curl
 
     curl -X POST http://localhost:8000/predict \
     -H "Content-Type: application/json" \
     -d '{"x1": 1, "x2": 0}'
 
-Réponse attendue :
+Expected response:
 
     {
       "input": [1, 0],
@@ -69,25 +54,25 @@ Réponse attendue :
 
 ---
 
-## Lancer avec Docker
+## 🐳 Run with Docker
 
-1. Build de l’image :
+1. Build the image:
 
     docker build -t xor-api .
 
-2. Lancer le conteneur :
+2. Run the container:
 
     docker run -p 8000:8000 --name xor-api xor-api
 
-Accès à l’API :  
+Access the API at:  
 http://localhost:8000/docs
 
 ---
 
-## Technologies utilisées
+## 📌 Technologies Used
 
-- Python 3.10
-- FastAPI
-- PyTorch
-- Docker
+- Python 3.10  
+- FastAPI  
+- PyTorch  
+- Docker  
 - Uvicorn
