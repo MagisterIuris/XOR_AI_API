@@ -76,3 +76,5 @@ http://localhost:8000/docs
 - PyTorch  
 - Docker  
 - Uvicorn
+
+The trained model (`.pth` file) is included and was trained entirely from scratch on synthetic data.
